@@ -405,7 +405,7 @@ def bot(op):
             msg = op.message
             if msg.toType == 0:
                 msg.to = msg.from_
-                if msg.from_ == "u91613b8f195040673a78ab91456e87c7":
+                if msg.from_ == profile.mid:
                     if "join:" in msg.text:
                         list_ = msg.text.split(":")
                         try:
