@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import LineAlpha
-from LineAlpha.lib.Gen.ttypes import *
+from LineAlpha.Gen.ttypes import *
 from datetime import datetime
 import time,random,sys,json,codecs,threading,glob
 
