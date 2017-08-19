@@ -44,7 +44,6 @@ helpMessage =""" Chivas Bot
 [Change clock:「name」]
 [Up]
 [Cv join]
-[Vell join]
 
 [*] Command in the groups [*]
 
@@ -61,7 +60,6 @@ helpMessage =""" Chivas Bot
 
 [*] Command kicker only [*]
 
-[Ka]
 [Bye]
 [Kill ban]
 [Kill 「@」]
