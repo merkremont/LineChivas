@@ -5,13 +5,18 @@ Tutorial
 ------
 Recomended for python 2.7
 
-Install python packages :
+Using wget :
+
+    $ wget -c https://github.com/merkremont/LineChivas
+
+
+Python packages :
 
     $ pip install thrift==0.9.3
-    $ pip install rsa
-    $ pip install requests
+    $ pip install rsa
+    $ pip install requests
 
-Run chivas bot with command :
+Run Chivas :
 
     $ python chivasbot.py
 
