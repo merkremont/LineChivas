@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 import os, sys
-path = os.path.join(os.path.dirname(__file__), '../lib/')
-sys.path.insert(0, path)
-
 import requests, rsa
 
 from thrift.transport import THttpClient
 from thrift.protocol import TCompactProtocol
 
-from Gen import LineService
-from Gen.ttypes import *
+from ..Gen import LineService
+from ..Gen.ttypes import *
 
 class Talk:
   client = None
@@ -89,7 +86,7 @@ class Talk:
   def qrLogin(self, callback):
     self.transport.path = self.auth_query_path
 
-    qr = self.client.getAuthQrcode(True, "Bot")
+    qr = self.client.getAuthQrcode(True, "Chivas-PC")
     callback("line://au/q/" + qr.verifier)
 
     r = requests.get("http://" + self.host + self.wait_for_mobile_path, headers={
