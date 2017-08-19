@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 import os, sys, json
-path = os.path.join(os.path.dirname(__file__), '../lib/')
-sys.path.insert(0, path)
 import requests
 
 from thrift.transport import THttpClient
 from thrift.protocol import TCompactProtocol
 
-from Gen import LineService
-from Gen.ttypes import *
+from ..Gen import LineService
+from ..Gen.ttypes import *
 import tempfile
 
 class Channel:
