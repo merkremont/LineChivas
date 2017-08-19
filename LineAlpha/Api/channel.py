@@ -291,36 +291,4 @@ class Channel:
             headers = header,
             data = json.dumps(payload)
         )
-        #albumId = r.json()["result"]["items"][0]["id"]
-
-
-        #h = {
-        #            "Content-Type": "application/x-www-form-urlencoded",
-        #            "User-Agent" : self.UA,
-        #            "X-Line-Mid" : gid,
-        #            "X-Line-Album" : albumId,
-        #            "x-lct" : self.channel_access_token,
-                    #"x-obs-host" : "obs-jp.line-apps.com:443",
-
-        #}
-        #print r.json()
-        #files = {
-        #    'file': open(path, 'rb'),
-        #}
-        #p = {
-        #    "userid" : gid,
-        #    "type" : "image",
-        #    "oid" : oid,
-        #    "ver" : "1.0"
-        #}
-        #data = {
-        #    'params': json.dumps(p)
-        #}
-        #r = requests.post(
-        #"http://obs-jp.line-apps.com/oa/album/a/object_info.nhn:443",
-        #headers = h,
-        #data = data,
-        #files = files
-        #)
         return r.json()
-        #cl.createAlbum("cea9d61ba824e937aaf91637991ac934b","ss3ai","kawamuki.png")
