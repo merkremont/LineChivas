@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-# Build by Merk Kremont
-# Library by LineAlpha
 import LineAlpha
 from LineAlpha.lib.Gen.ttypes import *
 from datetime import datetime
