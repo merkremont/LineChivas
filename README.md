@@ -1,5 +1,5 @@
 # LineChivas
-May the Chivas be with you...
+_May the Chivas be with you..._
 
 Tutorial
 ------
@@ -17,4 +17,4 @@ Run chivas bot with command :
 Author
 ------
 
-Merk Kremont / [@merkremont](https://www.google.com)
+Merk Kremont / [@merkremont](https://twitter.com/merkremont)
