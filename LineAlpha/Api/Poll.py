@@ -32,19 +32,3 @@ class Poll:
     self.rev = self.client.getLastOpRevision()
     self.transport.path = self.polling_path
     self.transport.open()
-
-  def stream(self, sleep=50000):
-    #usleep = lambda x: time.sleep(x/1000000.0)
-    while True:
-      try:
-        Ops = self.client.fetchOps(self.rev, 5)
-      except EOFError:
-        raise Exception("It might be wrong revision\n" + str(self.rev))
-
-      for Op in Ops:
-          # print Op.type
-        if (Op.type != OpType.END_OF_OPERATION):
-          self.rev = max(self.rev, Op.revision)
-          return Op
-
-      #usleep(sleep)
