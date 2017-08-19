@@ -8,7 +8,7 @@ Recomended for python 2.7
 Install python packages :
 
     $ pip install thrift==0.9.3
-    $ pip install rsa
+    $ pip install rsa
     $ pip install requests
 
 Run chivas bot with command :
