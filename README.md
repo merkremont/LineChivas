@@ -7,7 +7,7 @@ Recomended for python 2.7
 
 Using git :
 
-    $ git clone https://github.com/merkremont/LineChivas
+    $ git clone http://github.com/merkremont/LineChivas
 
 
 Python packages :
