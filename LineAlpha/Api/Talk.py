@@ -14,7 +14,7 @@ class Talk:
   auth_query_path = "/api/v4/TalkService.do";
   http_query_path = "/S4";
   wait_for_mobile_path = "/Q";
-  host = "https://gd2.line.naver.jp";
+  host = "https://gd2.line.naver.jp:443";
   port = 443;
 
   UA = "Line/6.0.0 iPad4,1 9.0.2"
@@ -99,7 +99,7 @@ class Talk:
     self.transport.setCustomHeaders({
        "X-Line-Application" : self.LA,
        "User-Agent" : self.UA,
-      "X-Line-Access": lr.authToken
+       "X-Line-Access": lr.authToken
     })
     self.authToken = lr.authToken
     self.cert = lr.certificate
