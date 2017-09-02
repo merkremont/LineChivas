@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from Api import Poll, Talk, channel
+from Api import Poll, Talk, Channel
 from Gen.ttypes import *
 
 def def_callback(str):
@@ -89,7 +89,6 @@ class LINE:
         msg = Message()
         msg.to = Tomid
         msg.text = text
-
         return self.Talk.client.sendMessage(0, msg)
         
   def sendImage(self, to_, path):
@@ -147,18 +146,14 @@ class LINE:
 
   """Contact"""
 
-
   def blockContact(self, mid):
         return self.Talk.client.blockContact(0, mid)
-
 
   def unblockContact(self, mid):
         return self.Talk.client.unblockContact(0, mid)
 
-
   def findAndAddContactsByMid(self, mid):
         return self.Talk.client.findAndAddContactsByMid(0, mid)
-
 
   def findAndAddContactsByMids(self, midlist):
         for i in midlist:
@@ -190,7 +185,6 @@ class LINE:
 
   def getHiddenContactMids(self):
         return self.Talk.client.getHiddenContactMids()
-
 
   """Group"""
 
@@ -313,4 +307,4 @@ class LINE:
       print("mid -> " + prof.mid)
       print("name -> " + prof.displayName)
       print("authToken -> " + self.authToken)
-      print("cert -> " + self.cert if self.cert is not None else "")
+      print("cert -> " + self.cert if self.cert is not None else "No cert")
