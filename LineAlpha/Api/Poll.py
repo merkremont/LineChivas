@@ -12,7 +12,7 @@ class Poll:
   auth_query_path = "/api/v4/TalkService.do";
   http_query_path = "/S4";
   polling_path = "/P4";
-  host = "https://gd2.line.naver.jp";
+  host = "https://gd2.line.naver.jp:443";
   port = 443;
 
   UA = "Line/6.0.0 iPad4,1 9.0.2"
