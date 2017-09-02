@@ -12,7 +12,7 @@ import tempfile
 class Channel:
     client = None
 
-    host = "https://gd2.line.naver.jp"
+    host = "https://gd2.line.naver.jp:443"
     http_query_path = "/S4"
     channel_query_path = "/CH4"
 
@@ -30,9 +30,10 @@ class Channel:
     def __init__(self, authToken):
         self.authToken = authToken
         self.transport = THttpClient.THttpClient(self.host + self.http_query_path)
-        self.transport.setCustomHeaders({ "User-Agent" : self.UA,
-        "X-Line-Application" : self.LA,
-        "X-Line-Access": self.authToken
+        self.transport.setCustomHeaders({
+            "User-Agent" : self.UA,
+            "X-Line-Application" : self.LA,
+            "X-Line-Access": self.authToken
         })
         self.transport.open()
         self.protocol = TCompactProtocol.TCompactProtocol(self.transport)
