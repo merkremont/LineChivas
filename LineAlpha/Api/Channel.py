@@ -12,13 +12,13 @@ import tempfile
 class Channel:
     client = None
 
-    host = "gd2.line.naver.jp"
+    host = "https://gd2.line.naver.jp"
     http_query_path = "/S4"
     channel_query_path = "/CH4"
 
     UA = "Line/6.0.0 iPad4,1 9.0.2"
 
-    LA = "IOSIPAD 6.0.0 iPhone OS 9.0.2"
+    LA = "DESKTOPMAC 10.10.2-YOSEMITE-x64    MAC 4.5.0"
 
     authToken = None
     mid = None
@@ -29,7 +29,7 @@ class Channel:
 
     def __init__(self, authToken):
         self.authToken = authToken
-        self.transport = THttpClient.THttpClient(self.host, 443, self.http_query_path)
+        self.transport = THttpClient.THttpClient(self.host + self.http_query_path)
         self.transport.setCustomHeaders({ "User-Agent" : self.UA,
         "X-Line-Application" : self.LA,
         "X-Line-Access": self.authToken
