@@ -14,7 +14,7 @@ class Talk:
   auth_query_path = "/api/v4/TalkService.do";
   http_query_path = "/S4";
   wait_for_mobile_path = "/Q";
-  host = "https://gd2.line.naver.jp:443";
+  host = "gd2.line.naver.jp";
   port = 443;
 
   UA = "Line/6.0.0 iPad4,1 9.0.2"
@@ -24,7 +24,7 @@ class Talk:
   cert = None
 
   def __init__(self):
-    self.transport = THttpClient.THttpClient(self.host + self.http_query_path)
+    self.transport = THttpClient.THttpClient('https://gd2.line.naver.jp:443'+self.auth_query_path)
     self.transport.setCustomHeaders({
       "User-Agent" : self.UA,
       "X-Line-Application" : self.LA,
@@ -51,7 +51,7 @@ class Talk:
     if result.type == 3:
       callback(result.pinCode)
       header = {"X-Line-Access": result.verifier}
-      r = requests.get(url="http://" + self.host + self.wait_for_mobile_path, headers=header)
+      r = requests.get(url="https://" + self.host + self.wait_for_mobile_path, headers=header)
 
       result = self.client.loginWithVerifierForCerificate(r.json()["result"]["verifier"])
       self.transport.setCustomHeaders({
@@ -89,7 +89,7 @@ class Talk:
     qr = self.client.getAuthQrcode(True, "Chivas-PC")
     callback("line://au/q/" + qr.verifier)
 
-    r = requests.get("http://" + self.host + self.wait_for_mobile_path, headers={
+    r = requests.get("https://" + self.host + self.wait_for_mobile_path, headers={
       "X-Line-Application": self.LA,
       "X-Line-Access": qr.verifier,
     })
