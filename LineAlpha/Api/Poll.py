@@ -12,7 +12,7 @@ class Poll:
   auth_query_path = "/api/v4/TalkService.do";
   http_query_path = "/S4";
   polling_path = "/P4";
-  host = "https://gd2.line.naver.jp:443";
+  host = "gd2.line.naver.jp";
   port = 443;
 
   UA = "Line/6.0.0 iPad4,1 9.0.2"
@@ -21,7 +21,7 @@ class Poll:
   rev = 0
 
   def __init__(self, authToken):
-    self.transport = THttpClient.THttpClient(self.host + self.http_query_path)
+    self.transport = THttpClient.THttpClient('https://gd2.line.naver.jp:443' + self.http_query_path)
     self.transport.setCustomHeaders({
       "User-Agent" : self.UA,
       "X-Line-Application" : self.LA,
