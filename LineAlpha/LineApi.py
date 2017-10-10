@@ -38,7 +38,7 @@ class LINE:
     self.cert = self.Talk.cert
 
     self.Poll = Poll(self.authToken)
-    self.channel = channel.Channel(self.authToken)
+    self.channel = Channel(self.authToken)
     self.channel.login()
 
     self.mid = self.channel.mid
