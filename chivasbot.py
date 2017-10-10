@@ -24,7 +24,7 @@ print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-helpMessage =""" Chivas Bot
+helpMessage ="""ProtectBot
 [Id︎]
 [Mid]
 [Me︎]
@@ -58,7 +58,7 @@ helpMessage =""" Chivas Bot
 [Gn 「group name」]
 [Nk 「name」]
 
-[*] Command kicker only [*]
+[*] Command Untuk Kicker [*]
 
 [Bye]
 [Kill ban]
