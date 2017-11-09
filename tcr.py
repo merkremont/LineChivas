@@ -24,58 +24,68 @@ print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-helpMessage =""" Chivas Bot
-[Id︎]
-[Mid]
-[Me︎]
-[TL︎:「Text」]
-[Mc 「mid」]
-[K on/off]
-[Join︎ on/off]
-[Gcancel:︎「Number of people」]
-[Group cancelalll︎]
-[Leave︎ on/off]
-[Add on/off]
-[Share on/off]
-[Message change:「text」]
-[Message check]
-[Confirm]
-[Jam on/off]
-[Change clock:「name」]
-[Up]
-[Cv join]
+helpMessage =""" 
+👈COMAND💖LIST👉
+   ✍✍✍✍✍✍✍✍
+👉Id︎
+👉Mid
+👉Me︎
+👉TL︎:Text
+👉Mc mid
+👉Cancel on/off
+👉K on/off
+👉Join︎ on/off
+👉Gcancel:︎Number of people
+👉C
+👉Leave︎ on/off
+👉Add on/off
+👉Share on/off
+👉Message change:text
+👉Message check
+👉Confirm
+👉Jam on/off
+👉Change clock:name
+👉Up
 
-[*] Command in the groups [*]
+👈COMAND GROUP👉
 
-[Curl]
-[Ourl]
-[url]
-[url:「Group ID」]
-[Invite：「mid」]
-[Kick：「mid」]
-[Ginfo]
-[Cancel]
-[Gn 「group name」]
-[Nk 「name」]
+👉Tg/Tagall
+👉spam on msg jumlah>text
+👉Curl/1/2/3
+👉Ourl/1/2/3
+👉url
+👉url:Group ID
+👉invite：mid
+👉Kick/1/2/3：mid
+👉Ginfo
+👉jointicket
+👉cancel/cancel/c
+👉Gn/1/2/3 group name
+👉nk=>name
+👉point> Check
 
-[*] Command kicker only [*]
+👈Command kicker only 👉
 
-[Bye]
-[Kill ban]
-[Kill 「@」]
-[Ban 「@」] By Tag
-[Unban 「@」] By Tag
-[Ban︎] Share Contact
-[Unban︎] Share Contact
-[Banlist︎]
-[Cek ban]
-[Cv mid]
-[Cv ︎invite:「mid」]
-[Cv ︎rename:「name」]
-[Cv ︎gift]
-[Respo︎n]
-[Bot cancel]
-[Title:]
+👉bye/1/2/3
+👉kill ban
+👉Kill @
+👉ban=> @ By Tag
+👉unban=> @ By Tag
+👉Ban=>︎ Share Contact
+👉Unban︎=> Share Contact
+👉banlist︎
+👉cek ban
+👉mid
+👉invite:mid
+👉rename
+👉gift/mygift
+👉respo︎n
+👉C
+👉Title:
+👉say > text
+👉Tes
+👆👆👆👆👆👆👆
+
 """
 KAC=[cl,ki,kk,kc]
 mid = cl.getProfile().mid
@@ -1441,6 +1451,31 @@ def bot(op):
                     except:
                         pass
 #-----------------------------------------------
+            elif msg.text in ["Tg","Tag all"]:
+                group = cl.getGroup(msg.to)
+                jw = [contact.mid for contact in group.members]
+                cb = ""
+                cb2 = ""
+                strt = int(0)
+                akh = int(0)
+                for rs in jw:
+                    xname = cl.getContact(rs).displayName
+                    xlen = int(len('x')+1)
+                    akh = akh + xlen
+                    cb += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(rs)+"},"""
+                    strt = strt + int(len('x')+3)
+                    akh = akh + 2
+                    cb2 += "@x \n"
+                cb = (cb[:int(len(cb)-1)])
+                msg.contentType = 0
+                msg.text = cb2
+                msg.contentMetadata ={'MENTION':'{"MENTIONEES":['+cb+']}','EMTVER':'d'}
+                try:
+                    cl.sendMessage(msg)
+                except Exception as error:
+                    print error
+
+#-----------------------------------------------
             elif msg.text in ["Kill"]:
                 if msg.toType == 2:
                     group = ki.getGroup(msg.to)
@@ -1653,6 +1688,24 @@ def bot(op):
                 kk.sendText(msg.to, "%sseconds" % (elapsed_time))
                 kc.sendText(msg.to, "%sseconds" % (elapsed_time))
 
+elif "Spam " in msg.text:
+               if msg.from_ in Bots or staff:
+                txt = msg.text.split(" ")
+                jmlh = int(txt[2])
+                teks = msg.text.replace("Spam "+str(txt[1])+" "+str(jmlh)+ " ","")
+                tulisan = jmlh * (teks+"\n")
+                #Keke cantik <3
+                if txt[1] == "on":
+                   if jmlh <= 60:
+                      for x in range(jmlh):
+                        cl.sendText(msg.to, teks)
+                   else:
+                        cl.sendText(msg.to, "Kelebihan batas:v")
+                elif txt[1] == "off":
+                   if jmlh <= 100:
+                        cl.sendText(msg.to, tulisan)
+                   else:
+                        cl.sendText(msg.to, "Kelebihan batas :v")
 #------------------------------------------------------------------
             elif msg.text in ["Ban"]:
                 wait["wblacklist"] = True
